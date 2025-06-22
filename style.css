@@ -666,7 +666,7 @@ form input:focus, form textarea:focus{
     }
     
     .image img {
-        max-width: 200px;
+        max-width: 150px;
     }
     
     .services-list {
