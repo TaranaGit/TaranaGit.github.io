@@ -9,6 +9,8 @@ body{
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    background-color:#FFFACD;
+     /* #F0F8FF; */
 }
 
 #header{
@@ -20,50 +22,69 @@ body{
 }
 
 .containerHeader {
-    justify-content: center;
-    max-width: 1200px;
-    margin: 0 auto;
+  /* display: flex; */
+  justify-content: center;
+  width: 100%;
 }
 
 /* Navigation */
-nav{
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #FFFACD; /* Match your background */
+    z-index: 1000;
+    padding: 20px 5%;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    padding: 20px 0;
-    flex-wrap: wrap;
 }
 
+
+/* Navigation Menu */
 nav ul {
-    list-style: none;
+    display: flex;
+    gap: 30px;
     margin: 0;
     padding: 0;
-    display: flex;
-    gap: 20px;
-}
-
-nav .navIcon a i{
-    color: #006989;
-    padding: 10px;
-    font-size: 24px;
-}
-
-nav ul li{
-    display: inline-block;
     list-style: none;
 }
 
-nav ul li a{
+nav ul li a {
     color: black;
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
-    transition: color 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+    transition: all 0.3s ease;
 }
 
-nav ul li a:hover{
-    color: #006989;
+/* Active/Hover Underline Effect */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: width 0.3s ease;
 }
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
 
 /* Header Section */
 #header-text {
@@ -87,6 +108,41 @@ nav ul li a:hover{
     justify-content: center;
     padding: 20px;
 }
+/* Add to your existing CSS */
+/* Container for social icons */
+.col-3-header {
+    display: inline-block;
+    vertical-align: top; /* Aligns with text content */
+}
+
+/* Social icons container */
+.header-social-icons {
+    display: inline-block; /* Changed from default */
+    margin-top: 40px;
+       text-align: center;/* Fixes inline-block spacing issue */
+}
+
+/* Individual icons */
+.social-icon {
+    display: inline-block;
+    color: #000;
+    font-size: 60px; /* Reset font size */
+    width: 40px; /* Fixed width for consistency */
+    height: 40px;
+ margin-bottom: 50px; /* gap between icons */
+    transition: transform 0.2s ease;
+}
+/* Remove margin from last icon */
+.social-icon:last-child {
+  margin-bottom: 0;
+}
+
+/* Hover effect */
+.social-icon:hover {
+    transform: translateY(-3px);
+    color: #006989; /* Your accent color */
+}
+
 
 .col-2-header {
     flex: 1;
@@ -95,6 +151,10 @@ nav ul li a:hover{
     justify-content: center;
     padding: 20px;
     text-align: left;
+
+    max-width: 600px; /* 💡 Limit width */
+    margin-left: auto;
+    margin-right: auto; /
 }
 
 .image {
@@ -117,7 +177,7 @@ nav ul li a:hover{
 .col-2-header h1{
     font-size: clamp(32px, 5vw, 60px);
     margin-bottom: 20px;
-    color: #333;
+    color: black;
     line-height: 1.2;
 }
 
@@ -132,253 +192,14 @@ nav ul li a:hover{
     font-size: clamp(14px, 2.5vw, 18px);
     text-align: justify;
     line-height: 1.6;
-    color: #555;
+    color: black;
 }
 
 /* Services & Skills */
-#services{
-    padding: 60px 5%;
-}
 
-.containerSkills {
-    max-width: 1200px;
-    margin: 0 auto;
-}
 
-.sub-title{
-    text-align: center;   
-    font-size: clamp(28px, 5vw, 40px);
-    font-weight: bold;
-    position: relative;
-    display: inline-block;
-    /* margin-bottom:5px; */
-}
 
-.sub-title::after{
-    content: "";
-    display: block;
-    width: 100%;
-    height: 4px;
-    margin-top: 2px;
-    background: linear-gradient(90deg, #33ff57,#33aaff, #aa33ff);
-    border-radius: 5px;
-}
-
-.services-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-gap: 30px;
-    margin-top: 50px;
-}
-
-.services-list .box{
-    background: #F2FCFC;
-    padding: 25px;
-    min-height: 320px;
-    font-weight: 300;
-    border-radius: 20px;
-    transition: background 0.5s, transform 0.5s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.services-list .box .icon-box1,
-.services-list .box .icon-box2,
-.services-list .box .icon-box3,
-.services-list .box .icon-box4,
-.services-list .box .icon-box5,
-.services-list .box .icon-box6{
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-.services-list .box .icon-box1{ background-color: #b7d7e8; }
-.services-list .box .icon-box2{ background-color: #87CEFA; }
-.services-list .box .icon-box3{ background-color: #f9d5e5; }
-.services-list .box .icon-box4{ background-color: #ADD8E6; }
-.services-list .box .icon-box5{ background-color: #D8BFD8; }
-.services-list .box .icon-box6{ background-color: #90EE90; }
-
-.icon-box1 i{ color: #004080; }
-.icon-box2 i{ color: #000080; }
-.icon-box3 i{ color: violet; }
-.icon-box4 i{ color: #004080; }
-.icon-box5 i{ color: #4B0082; }
-.icon-box6 i{ color: #006400; }
-
-.services-list .box i{
-    font-size: 30px;
-}
-
-.services-list .box h2{
-    font-size: 18px;
-    color: black;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.services-list .box p{
-    font-size: 14px;
-    color: black;
-    line-height: 1.5;
-    margin-bottom: 20px;
-}
-
-.services-list .box:hover{
-    background: #BDF1F6;
-    transform: translateY(-10px);
-}
-
-.horizontalline {
-    padding: 15px 0;
-    width: 100%;
-}
-
-.tech-logos{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    justify-items: start;
-    align-items: center;
-}
-.tech-item {
-    display: flex;
-    align-items: center;
-    white-space: nowrap; /* Prevents text from wrapping */
-}
-
-.icon-wrapper {
-    display: flex;  
-    align-items: center;  
-    justify-content: center;  
-    width: 20px;   
-    height: 20px;  
-    border-radius: 50%;  
-    background-color: lightgray;  
-
-}
-.tech-name {
-    color: black; 
-    font-size: 12px;
-}
-/* Override for certifications section only */
-.tech-logos.certifications {
-    grid-template-columns: 1fr; /* Single column */
-}
 /* Projects */
-#portfolio{
-    padding: 60px 5%;
-}
-
-.containerProjects {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.work-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-gap: 30px;
-    margin-top: 50px;
-    justify-items: center;
-}
-
-.work {
-    position: relative;
-    overflow: hidden;
-    background-color: #006989;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    border-radius: 15px;
-    width: 100%;
-    max-width: 320px;
-    min-height: 380px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    transition: transform 0.3s ease;
-}
-
-.work:hover {
-    transform: translateY(-5px);
-}
-
-.work h3{
-    font-size: 18px;
-    margin-bottom: 15px;
-    margin-top: 10px;
-    color: white;
-    text-align: center;
-}
-
-.layer img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.techName {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-.techName button {
-    background: rgba(255,255,255,0.2);
-    color: white;
-    border: 1px solid rgba(255,255,255,0.3);
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 11px;
-    cursor: default;
-}
-
-.layer a {
-    display: inline-block;
-    text-decoration: none;
-    font-size: 16px;
-    color: white;
-    background: rgba(255,255,255,0.2);
-    padding: 8px;
-    border-radius: 50%;
-    transition: background 0.3s ease;
-}
-
-.layer a:hover {
-    background: rgba(255,255,255,0.3);
-}
-
-.seeMore{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-}
-
-.btn{
-    display: inline-block;
-    background: #006989;
-    padding: 14px 30px;
-    border-radius: 25px;
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.btn:hover{
-    background: #C5DFF8;
-    color: black;
-    transform: translateY(-2px);
-}
 
 /* Contact */
 #contact {
@@ -404,16 +225,23 @@ nav ul li a:hover{
 
 .contact-left h1{
     text-align: left;
-    font-size: clamp(32px, 5vw, 50px);
+    font-size: 20px;
     margin-bottom: 3px;
 }
 
 .contact-left{
     /* flex-basis: 40%; */
-        display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;     /* Center child elements (email, phone, icons) */
-    gap: 10px;
+  
+}
+.contact-divider {
+    width: 60px; /* Adjust width as needed */
+    height: 3px;
+    margin-top: 0; /* top, right, bottom, left */
+    border-radius: 10px;
+    background-color: orangered;
 }
 
 .contact-right{
@@ -426,23 +254,24 @@ nav ul li a:hover{
 }  
 
 .contact-left p i{
-    color: #006989;
+    color: black;
     margin-right: 5px;
     font-size: 20px;
 }  
 
 .social-icons{
     /* margin-top: 30px; */
-       display: flex;
+    display: flex;
     justify-content: center;
-    gap: 15px;  
+    gap: 40px;  
 }
 
 .social-icons a{
+    margin-top: 25px;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 40px;
     margin-right: 20px;
-    color: #006989;
+    color: black;
     display: inline-block;
     transition: transform 0.3s ease;
     margin-bottom: 10px;
@@ -493,16 +322,17 @@ form input:focus, form textarea:focus{
 }
 
 .copyright{
-    width: 100%;
+
     text-align: center;
-    padding: 1px 0;
-    background: #D9EAFD;
-    font-weight: 300;
     margin-top: 40px;
+    font-size: small;
+    font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+
 }
 
 .copyright i{
-    color: #000080;
+    color: purple;
 }
 
 /* Mobile Responsive Design */
@@ -543,7 +373,7 @@ form input:focus, form textarea:focus{
     
     .row1 {
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
     }
     
     .col-1-header, .col-2-header {
@@ -556,6 +386,7 @@ form input:focus, form textarea:focus{
     }
     
     .image img {
+        margin-top: 20px;
         max-width: 280px;
     }
     
@@ -563,7 +394,7 @@ form input:focus, form textarea:focus{
         text-align: center;
     }
     
-    #services, #portfolio, #contact {
+    #services, #contact {
         padding: 40px 3%;
     }
     
@@ -582,15 +413,6 @@ form input:focus, form textarea:focus{
         gap: 8px;
     }
     
-    .work-list {
-        grid-template-columns: 1fr;
-        grid-gap: 25px;
-    }
-    
-    .work {
-        max-width: 100%;
-        min-height: 350px;
-    }
     
     .container-contact .row {
         flex-direction: column;
@@ -627,7 +449,7 @@ form input:focus, form textarea:focus{
         max-width: 240px;
     }
     
-    #services, #portfolio, #contact {
+    #services, #contact {
         padding: 30px 2%;
     }
     
@@ -635,10 +457,7 @@ form input:focus, form textarea:focus{
         padding: 15px;
     }
     
-    .work {
-        padding: 12px;
-        min-height: 320px;
-    }
+
     
     .layer img {
         height: 160px;
@@ -673,7 +492,276 @@ form input:focus, form textarea:focus{
         grid-template-columns: 1fr;
     }
     
-    .work h3 {
+    /* .work h3 {
         font-size: 16px;
+    } */
+}
+
+
+/* Pet Adoption Portal Specific Styles */
+.pet-adoption-portal {
+    margin: 2rem 0;
+}
+
+.project-container {
+     display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    margin: 2rem auto; /* Center the container */
+    max-width: 1200px; /* Limit maximum width */
+    padding: 0 20px; /* Add some padding on sides */
+}
+
+.slider-container {
+    flex: 1;
+    max-width: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Center the slider */
+}
+
+/* Fullscreen toggle button styles */
+.fullscreen-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 1000; /* Higher than slider content */
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fullscreen-toggle:hover {
+    background: rgba(0, 105, 137, 0.8);
+    transform: scale(1.1);
+}
+
+/* Fullscreen mode styles */
+.slider-container.fullscreen {
+     position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 9999;
+    background: white;
+    margin: 0 !important;
+    padding: 0 !important; /* Remove padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-container.fullscreen .slider {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    margin: 0 auto;
+}
+
+.slider-container.fullscreen .slides {
+    height: 100%;
+}
+
+.slider-container.fullscreen .slide img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+
+
+.slider-container.fullscreen .fullscreen-toggle {
+    background: rgba(0, 105, 137, 0.8);
+}
+.slider-container {
+    position: relative; /* Add this to make absolute positioning work */
+}
+
+/* Prevent scrolling when in fullscreen */
+.no-scroll {
+    overflow: hidden;
+}
+.slider {
+    width: 100%;
+    height: 350px; /* Default height (adjust if needed) */
+    position: relative;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    width: 300%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+  width: 33.33%;
+    height: 100%;
+    display: flex; /* Add this */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.slide img {
+     max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
+
+.slider-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.prev-slide, .next-slide {
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.dot.active {
+    background: white;
+}
+
+.project-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align everything to left */
+    padding-left: 30px; /* Space from slider */
+    height: auto; /* Remove fixed height */
+}
+/* Project Description */
+.project-description {
+    background-color: #FFFDD0; /* Blue background */
+    padding: 2px;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left; /* Or center if you prefer */
+}
+
+.project-description p {
+    font-family:'Times New Roman', Times, serif;
+     font-weight: 100;
+    
+    /* margin-bottom: 1rem; */
+    /* line-height: 1.5; */
+    color: black;
+    font-size: small;
+   
+}
+
+.techName {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px; /* Space above tech buttons */
+    justify-content: flex-start; /* Align with slider start */
+    width: 100%;
+    max-width: 600px; /* Match slider width */
+}
+
+.techName button {
+    padding: 5px 10px;
+    background-color: transparent;
+    border: 2px solid #000;
+    border-radius: 4px;
+    font-size: 12px;
+    color:black;
+    
+}
+
+.project-link {
+    margin: 15px 0; /* Space above and below */
+    align-self: flex-start; /* Align with slider start */
+    font-size: 3rem;
+    color:black; /* Matching blue color */
+}
+
+.project-link:hover {
+    color:#006989;
+}
+
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .project-container {
+        flex-direction: column;
+       
+    }
+    
+    .slider-container {
+        max-width: 100%;
+    }
+    
+    .project-content {
+        padding-left: 0;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .project-description p {
+        text-align: center;
+    }
+    
+    .techName {
+        justify-content: center;
+    }
+    
+    .project-link {
+        align-self: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider {
+        height: 250px;
+    }
+    
+    .techName button {
+        font-size: 10px;
+        padding: 4px 8px;
+        border-radius: 2px;
     }
 }
