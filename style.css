@@ -195,6 +195,55 @@ nav ul li a.active::after {
     color: black;
 }
 
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  margin-top: 30px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  position: relative;
+}
+
+.line {
+  width: 3px;
+  background-color: #006989;
+  height: 60px;
+  border-radius: 2px;
+  margin-top: 5px;
+}
+
+.timeline-marker {
+  width: 12px;
+  height: 12px;
+  background-color: #006989;
+  border-radius: 50%;
+  margin-left: -2px;
+  margin-bottom: 10px;
+}
+
+.content {
+  max-width: 500px;
+}
+
+.degree, .cert-title {
+  margin: 0;
+  font-weight: bold;
+  color: #000;
+}
+
+.institute, .cert-org {
+  margin: 5px 0 15px;
+  font-style: italic;
+  color: #555;
+}
+
+
 /* Services & Skills */
 
 
@@ -764,4 +813,44 @@ form input:focus, form textarea:focus{
         padding: 4px 8px;
         border-radius: 2px;
     }
+}
+
+@media screen and (max-width: 576px) {
+  .timeline {
+    padding-left: 10px;
+  }
+
+  .timeline-item {
+    gap: 10px;
+  }
+
+  .line {
+    height: 50px;
+    width: 2px;
+  }
+
+  .timeline-marker {
+    width: 10px;
+    height: 10px;
+    margin-left: 0;
+  }
+
+  .content {
+    max-width: 90vw;
+    font-size: 14px;
+  }
+
+  .degree, .cert-title {
+    font-size: 15px;
+        margin-bottom: 2px;
+  }
+
+  .institute, .cert-org {
+     font-size: 13px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding: 0; 
+      display: block;
+  margin-left: 0 !important;
+  }
 }
