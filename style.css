@@ -276,6 +276,9 @@ nav ul li a.active::after {
     text-align: left;
     font-size: 20px;
     margin-bottom: 3px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+ 
 }
 
 .contact-left{
@@ -771,6 +774,209 @@ form input:focus, form textarea:focus{
     color:#006989;
 }
 
+
+/* Skills css */
+/* ------------------------------ Skills Section ---------------------- */
+/* Update skill-item styles */
+/* .skill-item {
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.skill-item img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.skill-item i {
+    font-size: 1.8rem;
+} */
+/* Skills Section - Compact Logos */
+/* ------------------------------ Skills Section ---------------------- */
+#skills {
+     display: flex;
+    justify-content: center;
+    padding: 80px 0;
+    
+    /* background-color: #f8f9fa; */
+}
+
+.skills-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+    
+}
+
+.skills-title {
+    text-align: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: black;
+    position: relative;
+}
+
+.skills-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #3498db, #9b59b6);
+    border-radius: 2px;
+}
+
+.skills-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    /* align-items: center; */
+}
+
+/* Category Styles */
+.skill-category {
+    background:#000;
+    border-radius: 12px;
+    padding: 5px;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease; */
+}
+
+.skill-category:hover {
+    /* transform: translateY(-5px); */
+}
+
+.skill-category h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #FFFACD;;
+    /* color: white; */
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Compact Logo Grid */
+.skill-items {
+    display: grid;
+    grid-template-columns: repeat(3, 70px); /* Fixed 3 columns */
+    grid-template-rows: repeat(3, 1fr); /* Fixed 2 rows */
+ 
+    gap: 10px ;
+    width: 100%;
+    justify-items: center;
+    height: 120px; /* Fixed height for 2 rows */
+     padding: 0 10px; /* Optional: Add some container padding */
+}
+
+.skill-item {
+    width: 100%; /* Full width of grid cell */
+    height: 100%; /* Full height of grid cell */
+    max-width: 50px; /* Limit maximum size */
+    max-height: 50px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background-color: #FFFACD;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.skill-item:hover {
+    background-color: #e5e7eb;
+    transform: scale(1.1);
+}
+
+/* Tooltip on hover */
+/* .skill-item::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2c3e50;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-family: 'Inter', sans-serif;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+    white-space: nowrap;
+} */
+
+.skill-item:hover::after {
+    opacity: 1;
+}
+
+/* Icon Styles */
+.skill-item i {
+    font-size: 1.5rem;
+    color: #2c3e50;
+}
+
+.skill-item img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: filter 0.3s;
+}
+
+.skill-item:hover img {
+    filter: grayscale(0%);
+}
+
+/* Remove responsive grid changes */
+@media (max-width: 768px) {
+    .skill-items {
+        grid-template-columns: repeat(3, 1fr); /* Keep 3 columns on mobile */
+        height: auto; /* Flexible height */
+    }
+}
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .skill-items {
+        grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
+    }
+    
+    .skill-item {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .skill-item i {
+        font-size: 1.3rem;
+    }
+    
+    .skill-item img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .skill-items {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
 
 
 /* Responsive Adjustments */
