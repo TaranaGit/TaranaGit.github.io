@@ -289,11 +289,14 @@ nav ul li a.active::after {
   
 }
 .contact-divider {
+    position: relative;
     width: 60px; /* Adjust width as needed */
-    height: 3px;
+    height: 4px;
+    
     margin-top: 0; /* top, right, bottom, left */
     border-radius: 10px;
-    background-color: orangered;
+     transform: translateX(-50%);
+    background: linear-gradient(90deg, #3498db, #9b59b6);
 }
 
 .contact-right{
@@ -939,45 +942,56 @@ form input:focus, form textarea:focus{
     filter: grayscale(0%);
 }
 
-/* Remove responsive grid changes */
-@media (max-width: 768px) {
-    .skill-items {
-        grid-template-columns: repeat(3, 1fr); /* Keep 3 columns on mobile */
-        height: auto; /* Flexible height */
-    }
+/* ==================== MOBILE RESPONSIVE STYLES ==================== */
+/* Tablet & Small Laptop (768px and below) */
+
+/* Most Phones (480px and below) */
+
+
+/* Small Phones (375px and below - iPhone SE) */
+/* ==================== MOBILE RESPONSIVE FIX ==================== */
+/* Replace all existing media queries with this */
+
+/* Base styles (keep these) */
+.skills-grid {
+    display: flex;
+    flex-direction: row; /* Horizontal layout by default */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
 }
-/* Responsive Adjustments */
+
+/* Mobile Stacking */
 @media (max-width: 768px) {
     .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        flex-direction: column; /* Stack vertically */
+        align-items: center; /* Center the boxes */
+        gap: 30px;
+    }
+    
+    .skill-category {
+        width: 50%; /* Take most of screen width */
+        max-width: 300px; /* But not too wide */
     }
     
     .skill-items {
-        grid-template-columns: repeat(auto-fill, minmax(45px, 1fr));
-    }
-    
-    .skill-item {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .skill-item i {
-        font-size: 1.3rem;
-    }
-    
-    .skill-item img {
-        width: 20px;
-        height: 20px;
+        grid-template-columns: repeat(3, 1fr); /* Keep 3-column logo grid inside */
+        gap: 8px;
     }
 }
 
+/* Small Phone Adjustments */
 @media (max-width: 480px) {
+    .skill-category {
+        width: 75%;
+        max-width: none;
+    }
+    
     .skill-items {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* 3 logos per row */
+        gap: 6px;
     }
 }
-
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
